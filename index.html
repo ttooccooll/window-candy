@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Win98 Synthesizer</title>
+<title>Window Candy</title>
 <style>
 * {
   margin: 0;
@@ -759,7 +759,7 @@ canvas {
 <div class="desktop">
   <div class="desktop-icon" onclick="restoreWindow('main-window'); restoreWindow('adsr-window'); restoreWindow('effects-window'); restoreWindow('osc-mixer-window');">
     <div class="desktop-icon-img">🎹</div>
-    <div class="desktop-icon-label">Win98 Synth</div>
+    <div class="desktop-icon-label">Window Candy</div>
   </div>
   <div class="desktop-icon" onclick="restoreWindow('filter-window'); restoreWindow('lfo-window'); restoreWindow('pitch-window');">
     <div class="desktop-icon-img">💻</div>
@@ -777,9 +777,9 @@ canvas {
     <div class="desktop-icon-img">🗑</div>
     <div class="desktop-icon-label">Recycle Bin</div>
   </div>
-  <div class="window" id="main-window" style="left: 20px; top: 20px; width: 400px; z-index: 1;">
+  <div class="window" id="main-window" style="left: 130px; top: 15px; width: 400px; z-index: 1;">
     <div class="title-bar" onmousedown="startDrag(event, 'main-window')">
-      <div class="title-bar-text">Oscillator - Win98 Synth</div>
+      <div class="title-bar-text">Oscillator - Window Candy</div>
       <div class="title-bar-controls">
         <div class="title-btn" onclick="minimizeWindow('main-window')">_</div>
         <div class="title-btn" onclick="maximizeWindow('main-window')">□</div>
@@ -825,9 +825,9 @@ canvas {
       </div>
       <div class="menu-item">Help
         <div class="menu-dropdown">
-          <div class="menu-dropdown-item"><span>Help Topics</span><span class="menu-shortcut">F1</span></div>
+          <div class="menu-dropdown-item" onclick="showHelpTopics()"><span>Help Topics</span><span class="menu-shortcut">F1</span></div>
           <div class="menu-separator"></div>
-          <div class="menu-dropdown-item" onclick="showAbout()"><span>About Win98 Synth</span></div>
+          <div class="menu-dropdown-item" onclick="showAbout()"><span>About Window Candy</span></div>
         </div>
       </div>
     </div>
@@ -878,7 +878,7 @@ canvas {
     </div>
   </div>
 
-  <div class="window" id="adsr-window" style="left: 430px; top: 20px; width: 280px; z-index: 2;">
+  <div class="window" id="adsr-window" style="right: 250px; top: 30px; width: 280px; z-index: 2;">
     <div class="title-bar" onmousedown="startDrag(event, 'adsr-window')">
       <div class="title-bar-text">ADSR Envelope</div>
       <div class="title-bar-controls">
@@ -959,7 +959,7 @@ canvas {
     </div>
   </div>
 
-  <div class="window minimized" id="lfo-window" style="left: 270px; top: 220px; width: 240px; z-index: 4;">
+  <div class="window" id="lfo-window" style="right: 270px; bottom: 40px; width: 240px; z-index: 4;">
     <div class="title-bar" onmousedown="startDrag(event, 'lfo-window')">
       <div class="title-bar-text">LFO</div>
       <div class="title-bar-controls">
@@ -997,7 +997,7 @@ canvas {
     </div>
   </div>
 
-  <div class="window" id="effects-window" style="left: 520px; top: 220px; width: 240px; z-index: 5;">
+  <div class="window" id="effects-window" style="left: 480px; bottom: 100px; width: 240px; z-index: 5;">
     <div class="title-bar" onmousedown="startDrag(event, 'effects-window')">
       <div class="title-bar-text">Effects</div>
       <div class="title-bar-controls">
@@ -1037,7 +1037,7 @@ canvas {
   </div>
   </div>
 
-  <div class="window" id="osc-mixer-window" style="left: 760px; top: 20px; width: 220px; z-index: 6;">
+  <div class="window" id="osc-mixer-window" style="right: 20px; top: 30px; width: 220px; z-index: 6;">
     <div class="title-bar" onmousedown="startDrag(event, 'osc-mixer-window')">
       <div class="title-bar-text">Osc Mixer</div>
       <div class="title-bar-controls">
@@ -1134,7 +1134,7 @@ canvas {
     </div>
   </div>
 
-  <div class="window" id="scope-window" style="left: 270px; top: 400px; width: 240px; z-index: 8;">
+  <div class="window" id="scope-window" style="left: 50px; bottom: 35px; width: 240px; z-index: 8;">
     <div class="title-bar" onmousedown="startDrag(event, 'scope-window')">
       <div class="title-bar-text">Oscilloscope</div>
       <div class="title-bar-controls">
@@ -1162,7 +1162,7 @@ canvas {
     </div>
   </div>
 
-  <div class="window" id="arp-window" style="left: 760px; top: 400px; width: 220px; z-index: 9;">
+  <div class="window" id="arp-window" style="right: 10px; bottom: 40px; width: 220px; z-index: 9;">
     <div class="title-bar" onmousedown="startDrag(event, 'arp-window')">
       <div class="title-bar-text">Arpeggiator</div>
       <div class="title-bar-controls">
@@ -1220,21 +1220,94 @@ canvas {
 
 <div class="window" id="about-window" style="display: none; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 320px; z-index: 10000;">
   <div class="title-bar" onmousedown="startDrag(event, 'about-window')">
-    <div class="title-bar-text">About Win98 Synth</div>
+    <div class="title-bar-text">About Window Candy</div>
     <div class="title-bar-controls">
       <div class="title-btn" onclick="closeAbout()">×</div>
     </div>
   </div>
   <div class="window-body" style="text-align: center;">
-    <div style="font-size: 24px; font-weight: bold; margin: 10px 0; color: #000080;">Win98 Synth</div>
+    <div style="font-size: 24px; font-weight: bold; margin: 10px 0; color: #000080;">Window Candy</div>
     <div style="font-size: 11px; margin-bottom: 10px;">Version 1.0</div>
     <div style="font-size: 10px; margin-bottom: 15px; color: #666;">
-      A polyphonic synthesizer<br>with authentic Windows 98 UI
+      A polyphonic synthesizer<br>with authentic Windows 95 UI
     </div>
     <div style="font-size: 10px; color: #808080; margin-bottom: 15px;">
       Copyright 2026<br>All Rights Reserved
     </div>
     <button class="btn" onclick="closeAbout()">OK</button>
+  </div>
+</div>
+
+<div class="window" id="help-topics-window" style="display: none; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 420px; z-index: 10000;">
+  <div class="title-bar" onmousedown="startDrag(event, 'help-topics-window')">
+    <div class="title-bar-text">Help Topics</div>
+    <div class="title-bar-controls">
+      <div class="title-btn" onclick="closeHelpTopics()">×</div>
+    </div>
+  </div>
+  <div class="window-body" style="font-size: 11px; max-height: 380px; overflow-y: auto;">
+    <div style="margin-bottom: 8px;"><b>Welcome to Window Candy!</b></div>
+    <div style="margin-bottom: 12px; color: #666;">A polyphonic synthesizer with authentic Windows 95 styling.</div>
+    
+    <div class="group-box">
+      <div class="group-label">Getting Started</div>
+      <div style="font-size: 10px; padding: 4px;">
+        <div style="margin-bottom: 4px;">1. Click on the keyboard or use your computer keyboard (A-L for white keys, W,E,T,Y,U for black keys)</div>
+        <div style="margin-bottom: 4px;">2. Adjust the waveform, ADSR, filter, and effects to shape your sound</div>
+        <div>3. Press Z/X to change octaves</div>
+      </div>
+    </div>
+    
+    <div class="group-box">
+      <div class="group-label">Windows</div>
+      <div style="font-size: 10px; padding: 4px;">
+        <div style="margin-bottom: 4px;"><b>Oscillator</b> - Main sound control with waveform selection</div>
+        <div style="margin-bottom: 4px;"><b>ADSR</b> - Envelope shape (Attack, Decay, Sustain, Release)</div>
+        <div style="margin-bottom: 4px;"><b>Filter</b> - Low/High/Band pass filter with cutoff and resonance</div>
+        <div style="margin-bottom: 4px;"><b>LFO</b> - Low Frequency Oscillator for modulation</div>
+        <div style="margin-bottom: 4px;"><b>Effects</b> - Reverb and Delay processing</div>
+        <div style="margin-bottom: 4px;"><b>Osc Mixer</b> - Mix up to 3 oscillators</div>
+        <div style="margin-bottom: 4px;"><b>Pitch</b> - Pitch bend, portamento, and vibrato</div>
+        <div style="margin-bottom: 4px;"><b>Scope</b> - Real-time waveform display</div>
+        <div><b>Arpeggiator</b> - Automatic note sequencing</div>
+      </div>
+    </div>
+    
+    <div class="group-box">
+      <div class="group-label">Keyboard Shortcuts</div>
+      <div style="font-size: 10px; padding: 4px;">
+        <div style="margin-bottom: 2px;"><b>Playing:</b></div>
+        <div style="margin-left: 8px; margin-bottom: 2px;">A-L, W,E,T,Y,U - Play notes</div>
+        <div style="margin-left: 8px; margin-bottom: 2px;">Z/X - Octave down/up</div>
+        <div style="margin-left: 8px; margin-bottom: 2px;">←/→ - Pitch bend</div>
+        <div style="margin-left: 8px; margin-bottom: 4px;">Space - Sustain pedal</div>
+        <div style="margin-bottom: 2px;"><b>Sound:</b></div>
+        <div style="margin-left: 8px; margin-bottom: 2px;">1-4 - Select waveform</div>
+        <div style="margin-left: 8px; margin-bottom: 4px;">` - Toggle arpeggiator</div>
+        <div style="margin-bottom: 2px;"><b>Other:</b></div>
+        <div style="margin-left: 8px; margin-bottom: 2px;">Escape - All notes off (Panic)</div>
+        <div style="margin-left: 8px; margin-bottom: 2px;">F11 - Full screen</div>
+        <div style="margin-left: 8px;">Ctrl+S/O - Save/Load presets</div>
+      </div>
+    </div>
+    
+    <div class="group-box">
+      <div class="group-label">Presets</div>
+      <div style="font-size: 10px; padding: 4px;">
+        Use the <b>Start</b> menu → <b>Programs</b> to browse built-in presets. Click <b>Save Current...</b> in the File menu to save your own sounds. Presets are stored in your browser.
+      </div>
+    </div>
+    
+    <div class="group-box">
+      <div class="group-label">MIDI Support</div>
+      <div style="font-size: 10px; padding: 4px;">
+        Connect a MIDI keyboard or controller. Use <b>Options → MIDI Setup</b> to detect devices. Supports note on/off, velocity, sustain pedal (CC64), and modulation wheel (CC1).
+      </div>
+    </div>
+    
+    <div style="margin-top: 12px; text-align: center;">
+      <button class="btn" onclick="closeHelpTopics()">OK</button>
+    </div>
   </div>
 </div>
 
@@ -1372,7 +1445,6 @@ canvas {
     <div style="margin-left: 8px; margin-bottom: 4px;">Ctrl+Shift+S: Save As...</div>
     <div style="margin-left: 8px; margin-bottom: 4px;">Ctrl+N: New (reset to defaults)</div>
     <div style="margin-left: 8px; margin-bottom: 4px;">`: Toggle arpeggiator</div>
-    <div style="margin-left: 8px; margin-bottom: 4px;">Space: Sustain pedal</div>
     <div style="margin-left: 8px; margin-bottom: 4px;">Alt+F4: Exit</div>
     <div style="margin-left: 8px; margin-bottom: 4px;">Export: Save to file (menu)</div>
     <div style="margin-left: 8px; margin-bottom: 4px;">Import: Load from file (menu)</div>
@@ -1456,7 +1528,7 @@ canvas {
 <div class="start-menu" id="start-menu">
   <div class="start-menu-header">
     <span class="start-menu-logo">🏁</span>
-    <span style="margin-right: 4px; letter-spacing: 1px;">Windows 98</span>
+    <span style="margin-right: 4px; letter-spacing: 1px;">Window Candy</span>
   </div>
   <div class="start-menu-items">
     <div class="start-menu-item has-submenu" onclick="toggleProgramsMenu(event)">
@@ -1483,7 +1555,7 @@ canvas {
     <div class="start-menu-separator"></div>
     <div class="start-menu-item" onclick="showAbout(); closeStartMenu();">
       <div class="icon">?</div>
-      <span>About Win98 Synth</span>
+      <span>About Window Candy</span>
     </div>
     <div class="start-menu-item" onclick="showShortcuts(); closeStartMenu();">
       <div class="icon">⌨</div>
@@ -1568,6 +1640,112 @@ let aftertouch = 0;
 const notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
 const whiteNotes = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
 
+let $ = function(id) { return document.getElementById(id); };
+let $q = function(sel) { return document.querySelector(sel); };
+let $qa = function(sel) { return document.querySelectorAll(sel); };
+
+let els = {};
+function cacheEls() {
+  els = {
+    octaveDisplay: $('octave-display'),
+    statusWave: $('status-wave'),
+    statusOctave: $('status-octave'),
+    polyCount: $('poly-count'),
+    velocityDisplay: $('velocity-display'),
+    sustainStatus: $('sustain-status'),
+    volumeVal: $('volume-val'),
+    panVal: $('pan-val'),
+    attackVal: $('attack-val'),
+    decayVal: $('decay-val'),
+    sustainVal: $('sustain-val'),
+    releaseVal: $('release-val'),
+    cutoffVal: $('cutoff-val'),
+    resVal: $('res-val'),
+    lfoRateVal: $('lfo-rate-val'),
+    lfoDepthVal: $('lfo-depth-val'),
+    reverbVal: $('reverb-val'),
+    delayMixVal: $('delay-mix-val'),
+    delayTimeVal: $('delay-time-val'),
+    delayFbVal: $('delay-fb-val'),
+    osc1Val: $('osc1-val'),
+    osc2Val: $('osc2-val'),
+    osc2Detune: $('osc2-detune'),
+    osc2Oct: $('osc2-oct'),
+    osc3Val: $('osc3-val'),
+    osc3Detune: $('osc3-detune'),
+    bendRangeVal: $('bend-range-val'),
+    bendDisplay: $('bend-display'),
+    portaVal: $('porta-val'),
+    vibAmountVal: $('vib-amount-val'),
+    vibRateVal: $('vib-rate-val'),
+    arpBpmVal: $('arp-bpm-val'),
+    arpOctVal: $('arp-oct-val'),
+    scopeTimeVal: $('scope-time-val'),
+    scopeTrigVal: $('scope-trig-val'),
+    arpOnBox: $('arp-on-box'),
+    arpHoldBox: $('arp-hold-box'),
+    volumeSlider: $q('input[oninput="setVolume(this.value)"]'),
+    panSlider: $q('input[oninput="setPan(this.value)"]'),
+    attackSlider: $q('input[oninput="setAttack(this.value)"]'),
+    decaySlider: $q('input[oninput="setDecay(this.value)"]'),
+    sustainSlider: $q('input[oninput="setSustain(this.value)"]'),
+    releaseSlider: $q('input[oninput="setRelease(this.value)"]'),
+    filterCutoffSlider: $q('#filter-window input[type="range"]'),
+    filterResSlider: $qa('#filter-window input[type="range"]')[1],
+    lfoRateSlider: $qa('#lfo-window input[type="range"]')[0],
+    lfoDepthSlider: $qa('#lfo-window input[type="range"]')[1],
+    oscMixerSliders: $qa('#osc-mixer-window input[type="range"]'),
+    pitchSliders: $qa('#pitch-window input[type="range"]'),
+    arpBpmSlider: $q('#arp-window input[type="range"]'),
+    arpOctSlider: $qa('#arp-window input[type="range"]')[1],
+    scopeTimeSlider: $qa('#scope-window input[type="range"]')[0],
+    scopeTrigSlider: $qa('#scope-window input[type="range"]')[1],
+    waveBtns: $qa('.wave-selector .wave-btn'),
+    filterRadios: $qa('.filter-type-group .radio'),
+    lfoWaveBtns: $qa('.lfo-wave-group .wave-btn'),
+    lfoDestCheckboxes: $qa('.lfo-dest-group .checkbox'),
+    arpCheckbox: $q('#arp-window .checkbox'),
+    arpHoldCheckbox: $q('#arp-hold-box').parentElement,
+    arpPatternSelect: $q('#arp-window select'),
+    midiStatus: $('midi-status'),
+    audioSampleRate: $('audio-sample-rate'),
+    audioLatency: $('audio-latency'),
+    audioState: $('audio-state'),
+    audioVoices: $('audio-voices'),
+    presetDialogContent: $('preset-dialog-content'),
+    presetDialogOk: $('preset-dialog-ok'),
+    confirmDialogMessage: $('confirm-dialog-message'),
+    presetDialogTitle: $('preset-dialog-title'),
+    confirmDialogTitle: $('confirm-dialog-title'),
+    midiDevicesList: $('midi-devices-list'),
+    midiSetupStatus: $('midi-setup-status'),
+    audioDeviceName: $('audio-device-name'),
+    presetListMenu: $('preset-list-menu'),
+    clock: $('clock'),
+    startMenu: $('start-menu'),
+    scopeFreezeBtn: $('scope-freeze-btn'),
+    presetDialog: $('preset-dialog'),
+    confirmDialog: $('confirm-dialog'),
+    aboutWindow: $('about-window'),
+    helpTopicsWindow: $('help-topics-window'),
+    shortcutsWindow: $('shortcuts-window'),
+    featuresWindow: $('features-window'),
+    midiWindow: $('midi-window'),
+    audioWindow: $('audio-window')
+  };
+}
+
+function getMaxZ() {
+  var maxZ = 10000;
+  document.querySelectorAll('.window').forEach(function(w) {
+    var z = parseInt(w.style.zIndex) || 0;
+    if (z > maxZ) maxZ = z;
+  });
+  return maxZ + 1;
+}
+
+cacheEls();
+
 function initAudio() {
   if (audioCtx) {
     if (audioCtx.state === 'suspended') {
@@ -1636,8 +1814,6 @@ function initAudio() {
   delayNode.connect(delayWetGain);
   delayWetGain.connect(delayFeedback);
   delayFeedback.connect(delayNode);
-  
-  masterGain.connect(compressor);
 }
 
 function initMidi() {
@@ -1776,7 +1952,7 @@ function playNote(note, e) {
   
   while (activeVoices.size >= 8) {
     var oldestKey = activeVoices.keys().next().value;
-    stopNote(oldestKey.replace(currentOctave, ''));
+    stopNote(oldestKey.replace(/[0-9]/g, ''));
   }
   
   var filter = audioCtx.createBiquadFilter();
@@ -1804,14 +1980,12 @@ function playNote(note, e) {
   var targetFreq = freq;
   
   var oscs = [];
-  var oscGains = [];
   
   var osc1 = audioCtx.createOscillator();
   osc1.type = currentWave;
   osc1.frequency.value = freq;
   osc1.connect(filter);
   oscs.push(osc1);
-  oscGains.push(osc1Level);
   
   if (osc2Level > 0) {
     var osc2 = audioCtx.createOscillator();
@@ -1821,7 +1995,6 @@ function playNote(note, e) {
     osc2.detune.value = osc2Detune * 100;
     osc2.connect(filter);
     oscs.push(osc2);
-    oscGains.push(osc2Level);
   }
   
   if (osc3Level > 0) {
@@ -1831,7 +2004,6 @@ function playNote(note, e) {
     osc3.detune.value = osc3Detune * 100;
     osc3.connect(filter);
     oscs.push(osc3);
-    oscGains.push(osc3Level);
   }
   
   oscs.forEach(function(o) {
@@ -1908,7 +2080,6 @@ function playNote(note, e) {
   
   activeVoices.set(voiceId, { 
     oscs: oscs, 
-    oscGains: oscGains,
     mixerGainNodes: mixerGainNodes,
     lfo: lfo, 
     oscGain: oscGain, 
@@ -1983,14 +2154,12 @@ function playNoteWithVelocity(note, octave, velocity) {
   var targetFreq = freq;
   
   var oscs = [];
-  var oscGains = [];
   
   var osc1 = audioCtx.createOscillator();
   osc1.type = currentWave;
   osc1.frequency.value = freq;
   osc1.connect(filter);
   oscs.push(osc1);
-  oscGains.push(osc1Level);
   
   if (osc2Level > 0) {
     var osc2 = audioCtx.createOscillator();
@@ -2000,7 +2169,6 @@ function playNoteWithVelocity(note, octave, velocity) {
     osc2.detune.value = osc2Detune * 100;
     osc2.connect(filter);
     oscs.push(osc2);
-    oscGains.push(osc2Level);
   }
   
   if (osc3Level > 0) {
@@ -2010,7 +2178,6 @@ function playNoteWithVelocity(note, octave, velocity) {
     osc3.detune.value = osc3Detune * 100;
     osc3.connect(filter);
     oscs.push(osc3);
-    oscGains.push(osc3Level);
   }
   
   oscs.forEach(function(o) {
@@ -2088,7 +2255,6 @@ function playNoteWithVelocity(note, octave, velocity) {
   
   activeVoices.set(voiceId, { 
     oscs: oscs, 
-    oscGains: oscGains,
     mixerGainNodes: mixerGainNodes,
     lfo: lfo, 
     oscGain: oscGain, 
@@ -3087,24 +3253,12 @@ function showLoadDialog() {
   if (name) loadPreset(name);
 }
 
-function showNewDialog() {
-  if (confirm('Reset all settings to defaults?\n\nAny unsaved changes will be lost.')) {
-    initAllDefaults();
-    alert('All settings reset to defaults.');
-  }
-}
-
-function showSaveAsDialog() {
-  var name = prompt('Enter preset name:', 'My Patch');
-  if (name) savePreset(name);
-}
-
 function confirmExit() {
-  if (confirm('Exit Win98 Synth?\n\nAny unsaved changes will be lost.')) {
+  if (confirm('Exit Window Candy?\n\nAny unsaved changes will be lost.')) {
     try {
       window.close();
     } catch(e) {
-      document.body.innerHTML = '<div style="padding: 20px; font-family: Tahoma, sans-serif; font-size: 12px;">Win98 Synth has been closed.<br><br>You can refresh the page to restart.</div>';
+      document.body.innerHTML = '<div style="padding: 20px; font-family: Tahoma, sans-serif; font-size: 12px;">Window Candy has been closed.<br><br>You can refresh the page to restart.</div>';
     }
   }
 }
@@ -3128,13 +3282,13 @@ function showOpenPresetDialog() {
   var presets = JSON.parse(localStorage.getItem('win98synth_presets') || '{}');
   var names = Object.keys(presets);
 
-  var win = document.getElementById('preset-dialog');
-  document.getElementById('preset-dialog-title').textContent = 'Open Preset';
-  var content = document.getElementById('preset-dialog-content');
+  var win = els.presetDialog;
+  els.presetDialogTitle.textContent = 'Open Preset';
+  var content = els.presetDialogContent;
 
   if (names.length === 0) {
     content.innerHTML = '<div style="text-align: center; padding: 20px;">No saved presets found.</div>';
-    document.getElementById('preset-dialog-ok').style.display = 'none';
+    els.presetDialogOk.style.display = 'none';
   } else {
     var html = '<div style="margin-bottom: 8px;">Saved presets:</div>';
     html += '<div style="height: 150px; overflow-y: auto; border: 2px inset #808080; background: #fff; padding: 4px;">';
@@ -3143,18 +3297,12 @@ function showOpenPresetDialog() {
     });
     html += '</div>';
     content.innerHTML = html;
-    document.getElementById('preset-dialog-ok').style.display = '';
+    els.presetDialogOk.style.display = '';
     presetDialogCallback = function(name) { loadPreset(name); };
   }
 
   win.style.display = '';
-  var windows = document.querySelectorAll('.window');
-  var maxZ = 10000;
-  windows.forEach(function(w) {
-    var z = parseInt(w.style.zIndex) || 0;
-    if (z > maxZ) maxZ = z;
-  });
-  win.style.zIndex = maxZ + 1;
+  win.style.zIndex = getMaxZ();
 }
 
 function selectPresetItem(el, name) {
@@ -3175,24 +3323,18 @@ function presetDialogOk() {
 }
 
 function closePresetDialog() {
-  document.getElementById('preset-dialog').style.display = 'none';
+  els.presetDialog.style.display = 'none';
   presetDialogCallback = null;
   presetDialogData = null;
 }
 
 function showConfirmDialog(title, message, callback) {
-  var win = document.getElementById('confirm-dialog');
-  document.getElementById('confirm-dialog-title').textContent = title;
-  document.getElementById('confirm-dialog-message').innerHTML = message;
+  var win = els.confirmDialog;
+  els.confirmDialogTitle.textContent = title;
+  els.confirmDialogMessage.innerHTML = message;
   confirmDialogCallback = callback;
   win.style.display = '';
-  var windows = document.querySelectorAll('.window');
-  var maxZ = 10000;
-  windows.forEach(function(w) {
-    var z = parseInt(w.style.zIndex) || 0;
-    if (z > maxZ) maxZ = z;
-  });
-  win.style.zIndex = maxZ + 1;
+  win.style.zIndex = getMaxZ();
 }
 
 function confirmDialogOk() {
@@ -3203,25 +3345,8 @@ function confirmDialogOk() {
 }
 
 function closeConfirmDialog() {
-  document.getElementById('confirm-dialog').style.display = 'none';
+  els.confirmDialog.style.display = 'none';
   confirmDialogCallback = null;
-}
-
-function showNewDialog() {
-  showConfirmDialog('New', 'Reset all settings to defaults?<br><br>Any unsaved changes will be lost.', function() {
-    initAllDefaults();
-  });
-}
-
-function showSaveDialog() {
-  var name = prompt('Enter preset name:', 'My Patch');
-  if (name && name.trim()) {
-    savePreset(name.trim());
-  }
-}
-
-function showSaveAsDialog() {
-  showSaveDialog();
 }
 
 function initAllDefaults() {
@@ -3521,73 +3646,59 @@ function stopDrag() {
 }
 
 function showAbout() {
-  var win = document.getElementById('about-window');
+  var win = els.aboutWindow;
   win.style.display = '';
-  var windows = document.querySelectorAll('.window');
-  var maxZ = 1;
-  windows.forEach(function(w) {
-    var z = parseInt(w.style.zIndex) || 0;
-    if (z > maxZ) maxZ = z;
-  });
-  win.style.zIndex = maxZ + 1;
+  win.style.zIndex = getMaxZ();
 }
 
 function closeAbout() {
-  document.getElementById('about-window').style.display = 'none';
+  els.aboutWindow.style.display = 'none';
+}
+
+function showHelpTopics() {
+  var win = els.helpTopicsWindow;
+  win.style.display = '';
+  win.style.zIndex = getMaxZ();
+}
+
+function closeHelpTopics() {
+  els.helpTopicsWindow.style.display = 'none';
 }
 
 function showShortcuts() {
-  var win = document.getElementById('shortcuts-window');
+  var win = els.shortcutsWindow;
   win.style.display = '';
-  var windows = document.querySelectorAll('.window');
-  var maxZ = 1;
-  windows.forEach(function(w) {
-    var z = parseInt(w.style.zIndex) || 0;
-    if (z > maxZ) maxZ = z;
-  });
-  win.style.zIndex = maxZ + 1;
+  win.style.zIndex = getMaxZ();
 }
 
 function closeShortcuts() {
-  document.getElementById('shortcuts-window').style.display = 'none';
+  els.shortcutsWindow.style.display = 'none';
 }
 
 function showFeatures() {
-  var win = document.getElementById('features-window');
+  var win = els.featuresWindow;
   win.style.display = '';
-  var windows = document.querySelectorAll('.window');
-  var maxZ = 1;
-  windows.forEach(function(w) {
-    var z = parseInt(w.style.zIndex) || 0;
-    if (z > maxZ) maxZ = z;
-  });
-  win.style.zIndex = maxZ + 1;
+  win.style.zIndex = getMaxZ();
 }
 
 function closeFeatures() {
-  document.getElementById('features-window').style.display = 'none';
+  els.featuresWindow.style.display = 'none';
 }
 
 function showMidiSetup() {
-  var win = document.getElementById('midi-window');
+  var win = els.midiWindow;
   win.style.display = '';
-  var windows = document.querySelectorAll('.window');
-  var maxZ = 1;
-  windows.forEach(function(w) {
-    var z = parseInt(w.style.zIndex) || 0;
-    if (z > maxZ) maxZ = z;
-  });
-  win.style.zIndex = maxZ + 1;
+  win.style.zIndex = getMaxZ();
   refreshMidiDevices();
 }
 
 function closeMidiSetup() {
-  document.getElementById('midi-window').style.display = 'none';
+  els.midiWindow.style.display = 'none';
 }
 
 function refreshMidiDevices() {
-  var listEl = document.getElementById('midi-devices-list');
-  var statusEl = document.getElementById('midi-setup-status');
+  var listEl = els.midiDevicesList;
+  var statusEl = els.midiSetupStatus;
 
   if (!navigator.requestMIDIAccess) {
     listEl.innerHTML = '<div style="color: #800000;">MIDI not supported in this browser.</div>';
@@ -3619,20 +3730,14 @@ function refreshMidiDevices() {
 }
 
 function showAudioSettings() {
-  var win = document.getElementById('audio-window');
+  var win = els.audioWindow;
   win.style.display = '';
-  var windows = document.querySelectorAll('.window');
-  var maxZ = 1;
-  windows.forEach(function(w) {
-    var z = parseInt(w.style.zIndex) || 0;
-    if (z > maxZ) maxZ = z;
-  });
-  win.style.zIndex = maxZ + 1;
+  win.style.zIndex = getMaxZ();
   refreshAudioInfo();
 }
 
 function closeAudioSettings() {
-  document.getElementById('audio-window').style.display = 'none';
+  els.audioWindow.style.display = 'none';
 }
 
 function refreshAudioInfo() {
@@ -3837,7 +3942,7 @@ function installDefaultPresets() {
       vibratoAmount: 0, vibratoRate: 5, arpEnabled: true, arpBpm: 200,
       arpPattern: 'up', arpOctaves: 2, arpHold: false, panValue: 0
     },
-    'Piano 98': {
+    'Piano 95': {
       currentWave: 'triangle', currentOctave: 4, masterVolume: 0.6,
       attack: 0.01, decay: 0.4, sustain: 0.3, release: 0.5,
       filterType: 'lowpass', filterCutoff: 4000, filterQ: 2,
@@ -4284,7 +4389,7 @@ document.addEventListener('keyup', function(e) {
 document.addEventListener('visibilitychange', function() {
   if (document.hidden) {
     activeVoices.forEach(function(voice, id) {
-      var note = id.replace(currentOctave, '');
+      var note = id.replace(/[0-9]/g, '');
       stopNote(note);
     });
   }

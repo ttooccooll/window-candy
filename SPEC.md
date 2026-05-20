@@ -1,15 +1,15 @@
-# Windows 98 Synthesizer - Specification
+# Window Candy - Specification
 
 ## Project Overview
-- **Project name**: Win98 Synth
-- **Type**: Web-based synthesizer with authentic Windows 98 UI
-- **Core functionality**: A fully playable polyphonic synthesizer with multiple component windows, styled to look exactly like Windows 98
+- **Project name**: Window Candy
+- **Type**: Web-based synthesizer with authentic Windows 95 UI
+- **Core functionality**: A fully playable polyphonic synthesizer with multiple component windows, styled to look exactly like Windows 95
 - **Target users**: Musicians and retro UI enthusiasts
 
 ## UI/UX Specification
 
 ### Window System
-All windows use Windows 98 styling:
+All windows use Windows 95 styling:
 - Title bar with gradient (dark blue to lighter blue)
 - Window title (center), minimize/maximize/close buttons (right)
 - Classic gray (#c0c0c0) window body with 3D beveled borders
@@ -20,7 +20,7 @@ All windows use Windows 98 styling:
 
 ### Color Palette
 - Window title bar: #000080 to #1084d0 gradient
-- Window body: #c0c0c0 (classic Win98 gray)
+- Window body: #c0c0c0 (classic Windows 95 gray)
 - Button face: #c0c0c0
 - Button highlight: #ffffff
 - Button shadow: #808080
@@ -37,7 +37,7 @@ All windows use Windows 98 styling:
 - **File**: New, Open, Save, Save As, Panic, Exit
 - **Edit**: Undo, Redo, Copy Patch, Paste Patch, Init Pluck, Init Pad
 - **Options**: MIDI Setup, Audio Settings, Full Screen
-- **Help**: Help Topics, About Win98 Synth
+- **Help**: Help Topics, About Window Candy
 - Keyboard shortcuts displayed in menus
 
 ### Taskbar
@@ -48,7 +48,7 @@ All windows use Windows 98 styling:
 - System tray with volume icon
 
 ### Desktop Icons
-- Win98 Synth icon (opens main windows)
+- Window Candy icon (opens main windows)
 - My Computer icon (opens Filter, LFO, Pitch windows)
 - Arpeggiator icon (opens Arpeggiator window)
 - Scope icon (opens Oscilloscope window)
@@ -159,13 +159,13 @@ All windows use Windows 98 styling:
 - Programs submenu with presets (two-column grid layout)
 - Panic, Keyboard Shortcuts, About, Features Guide, Shut Down options
 - Click outside to close
-- Windows 98 header with flag logo
+- Windows 95 header with flag logo
 
 ### Preset System
-- 30 built-in Windows 98 themed presets:
+- 30 built-in Windows 95 themed presets:
   - System Sounds: Startup Chime, Shutdown Tone, Error Beep, Exclamation!, Question Mark, Clicky Button, Bubble Pop
   - Retro Game: Typewriter, 8-Bit Coin, Jump Sound, Laser Shot, Explosion, Power Up
-  - Instruments: Piano 98, Organ Keys, Synth Bass, Brass Hit, Strings Swell, Whistle, Flute, Trombone
+  - Instruments: Piano 95, Organ Keys, Synth Bass, Brass Hit, Strings Swell, Whistle, Flute, Trombone
   - Percussion/Bells: Synth Bell, Marimba
   - Effects: Sci-Fi Sweep, Echo Pulse, Ambient Pad, Arpfunk, Retro Stab, Hard Lead, Soft Lead
 - Programs menu opens upward
@@ -191,7 +191,7 @@ All windows use Windows 98 styling:
 - Error handling for Web Audio API not supported
 
 ## Acceptance Criteria
-1. All windows render with authentic Win98 styling
+1. All windows render with authentic Windows 95 styling
 2. Title bars have working close buttons (close individual windows)
 3. Windows are draggable
 4. Synth produces sound when notes are clicked
@@ -200,7 +200,7 @@ All windows use Windows 98 styling:
 7. LFO modulates sound
 8. Effects audible
 9. Multiple notes can play simultaneously
-10. UI feels authentically Win98
+10. UI feels authentically Windows 95
 11. Menu bar with keyboard shortcuts works
 12. Start menu opens and functions
 13. Arpeggiator sequences played notes
